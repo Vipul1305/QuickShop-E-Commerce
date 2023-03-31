@@ -1,33 +1,28 @@
-package com.ecommerce.QuickShop.Model;
+package com.ecommerce.QuickShop.RequestDTO;
 
 import com.ecommerce.QuickShop.Enum.CardType;
+import com.ecommerce.QuickShop.Model.Customer;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-@Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Card {
+public class CardRequestDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int customerId;
 
-    @Column(unique = true)
     private String cardNo;
 
     private int cvv;
 
-    @Enumerated(EnumType.STRING)
     private CardType cardType;
-
-    @ManyToOne
-    @JoinColumn
-    Customer customer;
 }

@@ -35,12 +35,10 @@ public class SellerServiceImpl implements SellerService {
 
     @Override
     public List<GetAllSellerResponseDto> getAllSeller() {
-        List<Integer> sellerId = sellerRepository.findAllSellerId();
+        List<Seller> sellerList = sellerRepository.findAll();
 
      List<GetAllSellerResponseDto> list = new ArrayList<>();
-        for(Integer id: sellerId){
-            Seller seller = sellerRepository.findById(id).get();
-
+        for(Seller seller: sellerList){
             GetAllSellerResponseDto getAllSellerResponseDto = GetAllSellerResponseDto.builder()
                     .sellerId(seller.getSellerId())
                     .name(seller.getName())

@@ -1,6 +1,7 @@
 package com.ecommerce.QuickShop.Model;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -14,6 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
  // don't create class with name order as it is a reserve keyword in sql which will create conflict
 public class Ordered {
 
